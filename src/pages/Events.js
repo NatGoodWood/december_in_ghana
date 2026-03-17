@@ -6,12 +6,12 @@ function Events() {
   useEffect(() => {
     fetch("https://www.eventbriteapi.com/v3/events/search/?location.address=Accra,Ghana&expand=venue", {
       headers: {
-        Authorization: `Bearer FD236G5OIATLXYNY4X`
+        Authorization: `Bearer ${process.env.REACT_APP_EVENTBRITE_TOKEN}`
       }
     })
       .then(res => res.json())
       .then(data => setEvents(data.events || []))
-      .catch(err => console.error(err));
+      .catch(err => console.error("Error fetching events:", err));
   }, []);
 
   return (

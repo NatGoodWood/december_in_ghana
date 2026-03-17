@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family:bold, sans-serif;
@@ -6,6 +11,7 @@ body {
 
 .navbar {
   display: flex;
+  width:100%;
   justify-content: space-between;
   align-items: center;
   background: black;
@@ -74,7 +80,7 @@ body {
   padding: 20px;
 }
 
-.home, .about, .events {
+.home, .about, .events, .tourism, .investment {
   text-align: center;
 }
 .social-bar {
@@ -133,11 +139,6 @@ body {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.social-icon:hover {
-  
-  
-  
-}
 .whatsapp{
   color: white;
 }
@@ -392,22 +393,14 @@ body {
   justify-content: space-between; /* separates contact and icons */
   align-items: center;
   background-image: url('/public/kente.jpg');
-   background-size: cover;
+  background-size: cover;
   background-position: center;
   position: relative;
   padding: 8px 20px;
 }
-.footer::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.1); /* dark fade overlay */
-  pointer-events: none;
-}
-
 .footer p {
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
+  font-size: 0.90rem;
   color: black;
   background-color: white;
 }
@@ -492,5 +485,32 @@ body {
   }
   60% {
     transform: translateY(-15px);
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;   /* stack logo, search, links */
+    align-items: flex-start;
+    padding: 10px;
+    height: auto;
+  }
+  .footer{
+    
+  }
+
+  .nav-links {
+    flex-direction: column;   /* stack links vertically */
+    gap: 20px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .search-section {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;              /* expand input on mobile */
   }
 }

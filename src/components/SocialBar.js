@@ -8,10 +8,10 @@ function SocialBar() {
     <div className="social-bar">
       {/* Contact section */}
       <div className="contact-section">
-        <a href="tel:+233241234567" className="contact">
+        <a href="tel:+233509895044" className="contact">
           <FiPhone className="phone-icon" />
           <span className="phone-number">
-            +233 50 989 5044 / +233 53 740 1516
+            +233 50 989 5044
           </span>
         </a>
       </div>

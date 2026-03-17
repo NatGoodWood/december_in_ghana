@@ -4,13 +4,9 @@ function Events() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("https://www.eventbriteapi.com/v3/events/search/?location.address=Accra,Ghana&expand=venue", {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_EVENTBRITE_TOKEN}`
-      }
-    })
+    fetch(`${process.env.REACT_APP_API_URL}/api/events`)
       .then(res => res.json())
-      .then(data => setEvents(data.events || []))
+      .then(data => setEvents(data))
       .catch(err => console.error("Error fetching events:", err));
   }, []);
 
@@ -18,16 +14,20 @@ function Events() {
     <div className="events-preview">
       <h2>Upcoming Events in Ghana</h2>
       <div className="event-grid">
-        {events.map(event => (
-          <div key={event.id} className="event-card">
-            <h3>{event.name.text}</h3>
-            <p>{new Date(event.start.local).toLocaleString()}</p>
-            <p>{event.venue?.address?.localized_address_display}</p>
-            <a href={event.url} target="_blank" rel="noopener noreferrer">
-              View Details
-            </a>
-          </div>
-        ))}
+        {events.length === 0 ? (
+          <p>No events found.</p>
+        ) : (
+          events.map(event => (
+            <div key={event.id} className="event-card">
+              <h3>{event.name.text}</h3>
+              <p>{new Date(event.start.local).toLocaleString()}</p>
+              <p>{event.venue?.address?.localized_address_display}</p>
+              <a href={event.url} target="_blank" rel="noopener noreferrer">
+                View Details
+              </a>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

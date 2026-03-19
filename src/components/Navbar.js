@@ -6,12 +6,10 @@ function Navbar() {
     const [showSearch, setShowSearch] = useState(false);
   return (
     <nav className="navbar">
-      {/* Logo */}
+
       <Link to="/">
         <img src="/FRIEND.png" alt="December in Ghana Logo" className="logo" />
       </Link>
-    
-      {/* Navigation links with icons */}
       <ul className="nav-links">
         <li>
           <Link to="/" className="nav-item">
